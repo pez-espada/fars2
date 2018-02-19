@@ -22,8 +22,8 @@ the function wil returns a list with the correspondung month and year found
 in the data
 }
 \examples{
-fars_read_years(years = c(2013, 2015))
-fars_read_years(years = 2013:2015)
-fars_read_years(years = list(2013,2015))
+fars_read_years(c(2013, 2015))
+fars_read_years(2013:2015)
+fars_read_years(list(2013,2015))
 
 }
