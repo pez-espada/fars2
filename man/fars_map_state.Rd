@@ -14,7 +14,6 @@ plotted as dots on the map.
 \details{
 @param state.num valid State number (between 1 and 51)
  @param year valid year
- @inheritParams fars_read_years
 
 @return A map with geolocated accidents as dots on the map
 

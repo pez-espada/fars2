@@ -86,9 +86,9 @@ fars_read <- function(filename) {
 #' other wise a exception error is thrown.
 #'
 #' @examples
-#' fars_read_years(years = c(2013, 2015))
-#' fars_read_years(years = 2013:2015)
-#' fars_read_years(years = list(2013,2015))
+#' fars_read_years(c(2013, 2015))
+#' fars_read_years(2013:2015)
+#' fars_read_years(list(2013,2015))
 #'
 #' @export
 fars_read_years <- function(years) {
