@@ -1,0 +1,17 @@
+Package: fars2
+Type: Package
+Title: A package to manipulate data of the Administration's Fatality Analysis Reporting System
+Version: 0.1.0
+Author: Carlos J Dommar
+Maintainer: <carlos.dommar@gmail.com>
+Description: The package provides with 5 functions that facilitate the manipulation, exploration and plotting of the data from the US National Highway Traffic Safety Administration's Fatality Analysis Reporting System.
+License: GPL-3
+Encoding: UTF-8
+LazyData: true
+RoxygenNote: 6.0.1
+Suggests: knitr,
+    rmarkdown,
+    testthat
+VignetteBuilder: knitr
+Imports:
+    magrittr, readr, dplyr, maps, tidyr, graphics

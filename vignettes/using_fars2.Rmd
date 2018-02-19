@@ -1,0 +1,86 @@
+---
+title: "fars2: A package to manipulate data of Administration's Fatality Analysis Reporting System"
+author: "Carlos J Dommar"
+date: "`r Sys.Date()`"
+output: rmarkdown::html_vignette
+vignette: >
+  %\VignetteIndexEntry{fars2: A package to manipulate data of Administration's Fatality Analysis Reporting System}
+  %\VignetteEngine{knitr::rmarkdown}
+  %\VignetteEncoding{UTF-8}
+---
+
+```{r setup, include = FALSE}
+knitr::opts_chunk$set(
+  collapse = TRUE,
+  comment = "#>"
+)
+```
+
+
+The functions provided in the package **fars2** use data (provided with the package) from the US National Highway Traffic Safety Administration's Fatality Analysis Reporting System, which is a nationwide census providing the American public yearly data regarding fatal injuries suffered in motor vehicle traffic crashes. The current five functions of the package facilitate the manipulation, exploration and plotting of the data.
+
+The functions contained in this packages are the following:
+
+- `make_filename()`
+- `fars_read()`
+- `fars_read_years()`
+- `fars_summarize_years()`
+- `fars_map_state()`
+
+
+## `make_filename()`
+
+The `make_filename()` function takes a four digit number representing a year and produces a string of the format `"accident_yyyy.csv.bz2"` where `yyyy` is the year. 
+This string is used in other `fars` functions 
+
+Example:
+```{r make_filename}
+library(fars2)
+make_filename(2013)
+```
+## `fars_read()`
+The function `fars_read()` reads and loads a file of the format `"accident_yyyy.csv.bz2"` into a dplyr's data frame tbl, where `yyyy` is the year in four digits format. You must use `system.file("extdata", "filename", package = "fars2")` format so you can be use the internal data of the package to illustrate the functionality of the code. This function returns a error message either if the file's name does not exits or a data frame table representing the data of the file. 
+
+Example:
+```{r fars_read}
+fars_read(system.file("extdata", "accident_2015.csv.bz2", package = "fars2"))
+```
+
+
+
+## *`fars_read_years()`*
+This function reads year(s) and returns a list with the corresponding months and year(s) out of the `FARS` data base. 
+The function reads a vector or list 'years' with four digit number in the format yyyy (e.g., 2015, (2013:2015), c(2013, 2015)) and if the years exist/are correct the function wil returns a list with the correspondung month and year found in the data (`magrittr` needed for the operator `%>%`).
+
+Example:
+
+```{r fars_read_years}
+library(magrittr)
+fars_read_years(years = c(2013, 2015))
+```
+
+## *`fars_summarize_years()`*
+This function takes years in format `yyyy` and returns the number of observations per month per year
+
+Examples:
+
+```{r fars_summarize_years}
+fars_summarize_years(years = c(2013, 2015))
+fars_summarize_years(years = 2013:2015)
+fars_summarize_years(years = list(2013,2015))
+
+```
+
+
+## *`fars_map_state()` *
+Plot a map with geolocated observations (cars accidents). 
+This functions takes a valid state number and a valid year and produces a map with geolocated observations (accidents) plotted as dots on the map.
+
+Example:
+
+```{r fars_map_state}
+fars_map_state(51, 2015)
+```
+
+> "He who gives up [code] safety for [code] speed deserves neither."
+([via](https://twitter.com/hadleywickham/status/504368538874703872))
