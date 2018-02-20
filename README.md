@@ -1,4 +1,5 @@
-# fars2
+# fars2: A package to manipulate data of Administration's Fatality Analysis Reporting System"
+
 
 [![Build Status](https://travis-ci.org/pez-espada/fars2.svg?branch=master)](https://travis-ci.org/pez-espada/fars2)
 
