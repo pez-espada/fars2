@@ -4,15 +4,15 @@
 \alias{fars_map_state}
 \title{Function `fars_map_state`: Plot a map with geolocated observations (cars accidents)}
 \usage{
-fars_map_state(state.num, year)
+fars_map_state(state_num, year)
 }
 \description{
-This functions takes a valid state number and a valid year
+This functions takes a valid state_number and a valid year
 and produces a map with geolocated observations (accidents)
 plotted as dots on the map.
 }
 \details{
-@param state.num valid State number (between 1 and 51)
+@param state_num valid state_number (between 1 and 51)
  @param year valid year
 
 @return A map with geolocated accidents as dots on the map

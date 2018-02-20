@@ -1,5 +1,6 @@
 # this is my testing file. I use testthat to implemet some tests on my functions
 library(testthat)
+library(fars2)
 context("fars functions")
 
 test_that("test_fars_read", {
@@ -25,6 +26,6 @@ test_that("test_fars_summarize_years", {
 })
 
 test_that("test_fars_map_state", {
-  my_map <- fars_map_state(state.num = 51, year = 2014)
+  my_map <- fars_map_state(state_num = 51, year = 2014)
   expect_that(my_map, is_a("NULL"))
 })

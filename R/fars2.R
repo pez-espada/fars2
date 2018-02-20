@@ -86,9 +86,9 @@ fars_read <- function(filename) {
 #' other wise a exception error is thrown.
 #'
 #' @examples
-#' fars_read_years(c(2013, 2015))
-#' fars_read_years(2013:2015)
-#' fars_read_years(list(2013,2015))
+#' fars_read_years(years = c(2013, 2015))
+#' fars_read_years(years = 2013:2015)
+#' fars_read_years(years = list(2013,2015))
 #'
 #' @export
 fars_read_years <- function(years) {
@@ -137,11 +137,11 @@ fars_summarize_years <- function(years) {
 #############################################################################
 #' Function `fars_map_state`: Plot a map with geolocated observations (cars accidents)
 #'
-#' This functions takes a valid state number and a valid year
+#' This functions takes a valid state_number and a valid year
 #' and produces a map with geolocated observations (accidents)
 #' plotted as dots on the map.
 #'
-#'  @param state.num valid State number (between 1 and 51)
+#'  @param state_num valid state_number (between 1 and 51)
 #'  @param year valid year
 #'
 #'  @return A map with geolocated accidents as dots on the map
@@ -151,16 +151,16 @@ fars_summarize_years <- function(years) {
 #'
 #' @import maps graphics
 #' @export
-fars_map_state <- function(state.num, year) {
+fars_map_state <- function(state_num, year) {
   STATE <-  NULL
   filename <- make_filename(year)
   data <- fars_read(system.file("extdata", filename, package = "fars2"))
-  #state.num <- MONTH <- STATE <- NULL
-  state.num <- as.integer(state.num)
+  #state_num <- MONTH <- STATE <- NULL
+  state_num <- as.integer(state_num)
 
-  if(!(state.num %in% unique(data$STATE)))
-    stop("invalid STATE number: ", state.num)
-  data.sub <- dplyr::filter(data, STATE == state.num)
+  if(!(state_num %in% unique(data$STATE)))
+    stop("invalid state_number: ", state_num)
+  data.sub <- dplyr::filter(data, STATE == state_num)
   if(nrow(data.sub) == 0L) {
     message("no accidents to plot")
     return(invisible(NULL))
