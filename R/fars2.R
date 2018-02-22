@@ -96,7 +96,7 @@ fars_read_years <- function(years) {
   lapply(years, function(year) {
     file <- make_filename(year)
     tryCatch({
-      dat <- fars_read(paste0("~/", file))
+      dat <- fars_read(system.file("extdata", file, package = "fars2"))
       dplyr::mutate(dat, year = year) %>% # the operator %>% needs to load magrittr
         dplyr::select(MONTH, year)
     }, error = function(e) {
@@ -130,6 +130,7 @@ fars_read_years <- function(years) {
 fars_summarize_years <- function(years) {
   year <- NULL
   MONTH <- NULL
+  dat_list <- NULL
   dat_list <- fars_read_years(years)
   dplyr::bind_rows(dat_list) %>%
     dplyr::group_by(year, MONTH) %>%
