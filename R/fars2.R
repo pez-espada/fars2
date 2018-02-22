@@ -110,7 +110,7 @@ fars_read_years <- function(years) {
 #' Function `fars_summarize_years` Takes years in format yyyy and returns the number
 #' of observations per month per year
 #'
-#' @inheritParams fars_read_years
+# #' @inheritParams fars_read_years
 #'
 #' @return a dplyr tibble object with the number of observations per
 #'  month per year if the later are found to be describe in the data objects.
