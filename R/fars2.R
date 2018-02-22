@@ -125,7 +125,8 @@ fars_read_years <- function(years) {
 #' @import tidyr magrittr
 #' @export
 fars_summarize_years <- function(years) {
-  year <- MONTH <- NULL
+  year <- NULL
+  MONTH <- NULL
   dat_list <- fars_read_years(years)
   dplyr::bind_rows(dat_list) %>%
     dplyr::group_by(year, MONTH) %>%
