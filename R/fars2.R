@@ -112,6 +112,9 @@ fars_read_years <- function(years) {
 #'
 # #' @inheritParams fars_read_years
 #'
+#' @param years It can be a vector or a list of number representing years with
+#' format 'yyyy', such as in '1927'
+#'
 #' @return a dplyr tibble object with the number of observations per
 #'  month per year if the later are found to be describe in the data objects.
 #'  Months are displayed as a column and years as colnames; number of
